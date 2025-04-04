@@ -1,10 +1,10 @@
 provider "aws" {
-  region = "ap-northeast-1" # Change as needed
+  region = "ap-northeast-1"
 }
 
 resource "aws_key_pair" "medusa_key" {
   key_name   = "keypair2"
-  public_key = "~/.ssh/id_rsa.pub" # Update with your SSH key path
+  public_key = "~/.ssh/id_rsa.pub"
 }
 
 resource "aws_security_group" "medusa_sg" {
@@ -50,7 +50,7 @@ resource "aws_security_group" "medusa_sg" {
 resource "aws_instance" "medusa" {
   ami                    = "ami-0b6e7ccaa7b93e898" # Amazon Linux 2 (Update as needed)
   instance_type          = "t2.micro"
-  key_name               = "aws_key_pair.medusa_key"
+  key_name               = "keypair2"
   vpc_security_group_ids = [aws_security_group.medusa_sg.id]
 
   user_data = <<-EOF
