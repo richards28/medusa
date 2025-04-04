@@ -43,12 +43,12 @@ resource "aws_security_group" "medusa_sg" {
 }
 
 resource "aws_instance" "medusa" {
-  ami                    = "ami-09e478ab35af09730" # Amazon Linux 2 (Update as needed)
+  ami                    = "ami-026c39f4021df9abe" # Amazon Linux 2 (Update as needed)
   instance_type          = "t3.medium"
   key_name               = "keypair2"
   vpc_security_group_ids = [aws_security_group.medusa_sg.id]
 
-user_data = <<-EOF
+user_data =
 #!/bin/bash
 
 # Update system and install required dependencies
