@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "ap-northeast--1" # Change as needed
+  region = "ap-northeast-1" # Change as needed
 }
 
 resource "aws_key_pair" "medusa_key" {
@@ -48,7 +48,7 @@ resource "aws_security_group" "medusa_sg" {
 }
 
 resource "aws_instance" "medusa" {
-  ami                    = "ami-0c55b159cbfafe1f0" # Amazon Linux 2 (Update as needed)
+  ami                    = "ami-0b6e7ccaa7b93e898" # Amazon Linux 2 (Update as needed)
   instance_type          = "t2.micro"
   key_name               = aws_key_pair.medusa_key.key_name
   vpc_security_group_ids = [aws_security_group.medusa_sg.id]
