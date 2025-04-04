@@ -65,6 +65,9 @@ resource "aws_instance" "medusa" {
     sudo -u postgres psql -c "ALTER DATABASE medusa OWNER TO medusauser;"
 
     # Install Medusa
+    curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash
+    source ~/.bashrc
+    npm install 18
     npm install -g @medusajs/medusa-cli
     mkdir /home/ec2-user/medusa && cd /home/ec2-user/medusa
     medusa new my-medusa-store --seed
