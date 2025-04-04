@@ -48,7 +48,7 @@ resource "aws_instance" "medusa" {
   key_name               = "keypair2"
   vpc_security_group_ids = [aws_security_group.medusa_sg.id]
 
-user_data =
+
 #!/bin/bash
 
 # Update system and install required dependencies
