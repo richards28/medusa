@@ -50,7 +50,7 @@ resource "aws_security_group" "medusa_sg" {
 resource "aws_instance" "medusa" {
   ami                    = "ami-0b6e7ccaa7b93e898" # Amazon Linux 2 (Update as needed)
   instance_type          = "t2.micro"
-  key_name               = aws_key_pa.medusa_key.key_name
+  key_name               = "aws_key_pair.medusa_key
   vpc_security_group_ids = [aws_security_group.medusa_sg.id]
 
   user_data = <<-EOF
