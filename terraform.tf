@@ -48,7 +48,7 @@ resource "aws_instance" "medusa" {
   key_name               = "keypair2"
   vpc_security_group_ids = [aws_security_group.medusa_sg.id]
 
-userdata = file("test.sh")
+user_data = file("test.sh")
   tags = {
     Name = "Medusa-Server"
   }
