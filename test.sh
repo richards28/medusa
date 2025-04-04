@@ -1,7 +1,9 @@
 #!/bin/bash
+
 # Update system and install required dependencies
+sudo apt update -y
 sudo apt upgrade -y
-sudo apt install -y curl wget unzip git build-essential
+sudo apt install -y curl wget unzip git build-essential 
 
 # Install Node.js (Latest LTS version)
 curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
@@ -47,4 +49,6 @@ chown -R ubuntu:ubuntu /home/ubuntu/my-medusa-store
 
 # Start Medusa in the background
 cd /home/ubuntu/my-medusa-store
-nohup medusa develop > /home/ubuntu/medusa.log 2>&1
+nohup medusa develop > /home/ubuntu/medusa.log 2>&1 &
+
+echo "Medusa installation completed!"
