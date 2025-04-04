@@ -4,7 +4,7 @@ provider "aws" {
 
 resource "aws_key_pair" "medusa_key" {
   key_name   = "keypair2"
-  public_key = file("/~/.ssh/id_rsa.pub") # Update with your SSH key path
+  public_key = "~/.ssh/id_rsa.pub" # Update with your SSH key path
 }
 
 resource "aws_security_group" "medusa_sg" {
