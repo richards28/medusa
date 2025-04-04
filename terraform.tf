@@ -2,11 +2,6 @@ provider "aws" {
   region = "ap-northeast-1"
 }
 
-resource "aws_key_pair" "medusa_key" {
-  key_name   = "keypair2"
-  public_key = "~/.ssh/id_rsa.pub"
-}
-
 resource "aws_security_group" "medusa_sg" {
   name        = "medusa-security-group"
   description = "Allow HTTP, HTTPS, and Medusa API traffic"
