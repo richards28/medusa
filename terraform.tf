@@ -67,7 +67,7 @@ resource "aws_instance" "medusa" {
     # Install Medusa
     curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash
     source ~/.bashrc
-    npm install 18
+    nvm install 16
     npm install -g @medusajs/medusa-cli
     mkdir /home/ec2-user/medusa && cd /home/ec2-user/medusa
     medusa new my-medusa-store --seed
