@@ -48,9 +48,8 @@ resource "aws_instance" "medusa" {
   key_name               = "keypair2"
   vpc_security_group_ids = [aws_security_group.medusa_sg.id]
 
-
+userdata = (
 #!/bin/bash
-
 # Update system and install required dependencies
 sudo apt upgrade -y
 sudo apt install -y curl wget unzip git build-essential
@@ -109,3 +108,4 @@ nohup medusa develop > /home/ubuntu/medusa.log 2>&1
 output "medusa_instance_ip" {
   value = aws_instance.medusa.public_ip
 }
+)
